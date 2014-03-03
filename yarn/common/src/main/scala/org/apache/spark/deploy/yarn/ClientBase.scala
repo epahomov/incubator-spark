@@ -206,7 +206,7 @@ trait ClientBase extends Logging {
 
     val sparkJar = System.getenv("SPARK_JAR") match {
       case null => System.getProperty("SPARK_JAR")
-      case _ => _
+      case s: String => s
     }
     Map(
       ClientBase.SPARK_JAR -> sparkJar, ClientBase.APP_JAR -> args.userJar,
