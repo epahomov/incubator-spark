@@ -46,7 +46,7 @@ private[spark] class YarnClientSchedulerBackend(
 
     val userJar = System.getenv("SPARK_YARN_APP_JAR") match {
       case null => System.getProperty("SPARK_YARN_APP_JAR")
-      case _ => _
+      case s: String => s
     }
     if (userJar == null)
       throw new SparkException("env SPARK_YARN_APP_JAR is not set")
